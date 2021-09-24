@@ -17,11 +17,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "bundle.js",
+    filename: "main.js",
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
     hot: true,
+		port: 3000,
+		contentBase: __dirname + '/dist/'
   },
 };
