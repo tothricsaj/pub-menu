@@ -1,8 +1,13 @@
 const webpack = require("webpack");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 module.exports = {
-  entry: path.resolve(__dirname, "./src/index.js"),
+  context: process.cwd(),
+  entry: {
+    app: "./src/index.jsx",
+  },
   module: {
     rules: [
       {
@@ -17,14 +22,21 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    publicPath: '/dist/',
-    filename: "main.js",
+    // publicPath: '/dist/',
+    filename: "[name].js",
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Pub menu',
+      filename: 'index.html',
+      template: './src/index.html'
+    }),
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist"),
     hot: true,
 		port: 3000,
-		contentBase: __dirname + '/dist/'
+    static: path.join(__dirname, 'dist')
   },
 };
