@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Test(props) {
+const Test = (props) => {
 	return (
 		<div>
 			<h2>{ props.title }</h2>
 		</div>
 	)
 }
+
+export default Test;
