@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import React from 'react';
 import Test from '../Test'
 
 const EXPECTED_VALUE = 'Test title';

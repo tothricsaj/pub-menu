@@ -9,7 +9,9 @@
     "build": "webpack --mode=production",
     "lint": "eslint --ext .js,.jsx src/",
     "lint:fix": "eslint --ext .js,.jsx src/ --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --coverage --coverageReporters=text-lcov"
   },
   "repository": {
     "type": "git",
