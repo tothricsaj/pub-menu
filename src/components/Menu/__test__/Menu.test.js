@@ -3,9 +3,17 @@ import React from 'react';
 import Menu from '../Menu';
 
 const MENU_LIST = [
-	"Food1",
-	"Food2",
-	"Food3"
+	{
+		name: 'menu 1',
+		price: '11.99'
+	},
+	{
+		name: 'menu 2',
+		price: '12.99'
+	},	{
+		name: 'menu 3',
+		price: '13.99'
+	},
 ]
 
 describe('Menu', () => {

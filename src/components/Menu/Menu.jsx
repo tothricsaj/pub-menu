@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import MenuElement from '../MenuElement/MenuElement';
 
 export default function Menu(props) {
 	return (
 		<div>
 			<ul>
 				{
-					props.menuList.map((el, i) => <li key={i}>{el}</li>)
+					props.menuList.map((el, i) => <MenuElement menuInfo={el} key={i} />)
 				}
 			</ul>
 		</div>
