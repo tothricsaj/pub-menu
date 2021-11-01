@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import Menu from '../Menu';
 
@@ -22,5 +22,23 @@ describe('Menu', () => {
 		const listElement = screen.getByRole('list');
 		// const headingElement = screen.getByText(/my header/i);
 		expect(listElement).toBeInTheDocument();
+	});
+
+	describe('Add menu button', () => {
+			it('it should render Add menu button', () => {
+				render(<Menu menuList={ MENU_LIST } />);
+				const addMenuBtn = screen.getByText(/add menu/i)
+				expect(addMenuBtn).toBeInTheDocument();
+		});	
+
+		it('should render AddMenuModal after fired click', () => {
+				render(<Menu menuList={ MENU_LIST } />);			
+				const addMenuBtn = screen.getByText(/add menu/i);
+				const addMenuModal = screen.getByTestId("add-menu-modal");
+
+				fireEvent.click(addMenuBtn);
+
+				expect(addMenuModal).toBeInTheDocument();
+		});
 	});
 });
