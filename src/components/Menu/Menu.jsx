@@ -20,11 +20,9 @@ export default function Menu(props) {
 				}
 			</ul>
 
-			<button onClick={() => {console.log('clicked')}}>Add menu</button>
+			<button onClick={() => setShowModal(true)}>Add menu</button>
 			{
-				showModal
-					? <AddMenuModal />
-					: null
+				showModal && <AddMenuModal />
 			}
 		</div>
 	)

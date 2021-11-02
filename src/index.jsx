@@ -7,9 +7,9 @@ import store from './store/store'
 import App from './App';
 
 ReactDOM.render(
-  // <Provider store={store}>
-    <App />,
-  // </Provider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root'),
 );
 // hot reloading. It works by replacing a module of the application
