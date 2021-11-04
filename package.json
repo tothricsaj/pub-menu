@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "private": true,
+    "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
     "start": "webpack serve --mode=development",
     "dev": "webpack serve",
@@ -51,6 +54,7 @@
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.2.1",
     "react-hot-loader": "^4.13.0",
+    "redux-mock-store": "^1.5.4",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.1"
