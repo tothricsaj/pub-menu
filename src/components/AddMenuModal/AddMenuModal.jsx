@@ -7,7 +7,7 @@ export default function AddMenuModal() {
 				<input type="text" placeholder="Name" />
 				<input type="text" placeholder="price" />
 
-				<div role="addBtn">Add</div>
+				<button role="addBtn">Add</button>
 			</div>
 		</div>
 	)
