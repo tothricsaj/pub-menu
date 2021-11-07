@@ -37,7 +37,26 @@ describe('Menu', () => {
 				const addMenuBtn = screen.getByText(/add menu/i);
 				fireEvent.click(addMenuBtn);
 				const addMenuModal = await screen.getByTestId("add-menu-modal");
+
 				expect(addMenuModal).toBeInTheDocument();
 		});
+
+		it('should render extended menulist item', async () => {
+				render(<Menu />);			
+				const addMenuBtn = screen.getByText(/add menu/i);
+				fireEvent.click(addMenuBtn);
+
+				const nameInput = await screen.getByPlaceholderText(/name/i);
+				const priceInput = await screen.getByPlaceholderText(/price/i);
+				const addMenuItemBtn = await screen.getByRole('addBtn');
+
+				fireEvent.change(nameInput, { target: {value: 'test menu item'}});
+				fireEvent.change(priceInput, { target: {value: '10'}});
+				fireEvent.click(addMenuItemBtn);
+
+				const liElement = await screen.getByText('test menu item 10');
+
+				expect(liElement).toBeInTheDocument();
+		});	
 	});
 });

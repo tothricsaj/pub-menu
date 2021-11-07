@@ -11,10 +11,8 @@ export default function Menu(props) {
 
 	const [showModal, setShowModal] = useState(false);
 
-	const showModalFn = () => {
-		// setShowModal(!showModal);
-		console.log('foo bar baz');
-		console.log(showModal);
+	const addMenuItem = () => {
+
 	}
 
 	return (
