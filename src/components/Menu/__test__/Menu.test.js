@@ -22,25 +22,22 @@ describe('Menu', () => {
 
 		render(<Menu />);
 		const listElement = await screen.getByRole('list');
-		// const headingElement = screen.getByText(/my header/i);
 		expect(listElement).toBeInTheDocument();
 	});
 
-	// describe('Add menu button', () => {
-	// 		it('it should render Add menu button', () => {
-	// 			render(<Menu />);
-	// 			const addMenuBtn = screen.getByText(/add menu/i)
-	// 			expect(addMenuBtn).toBeInTheDocument();
-	// 	});	
+	describe('Add menu button', () => {
+			it('it should render Add menu button', () => {
+				render(<Menu />);
+				const addMenuBtn = screen.getByText(/add menu/i)
+				expect(addMenuBtn).toBeInTheDocument();
+		});	
 
-	// 	// it('should render AddMenuModal after fired click', () => {
-	// 	// 		render(<Menu menuList={ MENU_LIST } />);			
-	// 	// 		const addMenuBtn = screen.getByText(/add menu/i);
-	// 	// 		const addMenuModal = screen.getByTestId("add-menu-modal");
-
-	// 	// 		fireEvent.click(addMenuBtn);
-
-	// 	// 		expect(addMenuModal).toBeInTheDocument();
-	// 	// });
-	// });
+		it('should render AddMenuModal after fired click', async () => {
+				render(<Menu />);			
+				const addMenuBtn = screen.getByText(/add menu/i);
+				fireEvent.click(addMenuBtn);
+				const addMenuModal = await screen.getByTestId("add-menu-modal");
+				expect(addMenuModal).toBeInTheDocument();
+		});
+	});
 });
