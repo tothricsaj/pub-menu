@@ -25,11 +25,11 @@ describe('AddMenuModal', () => {
 			render(<AddMenuModal />);		
 			const wrapperDiv = screen.getByTestId('add-menu-modal');
 
-			expect(wrapperDiv).toHaveStyle({
-				backgroundColor: 'rgba(0,0,0,0.5)',
-				width: '100vw',
-				height: '100vh',
-			})
+			expect(wrapperDiv).toHaveStyle(`
+				width: 100vw,
+				height: 100vh,
+				background-color: rgba(0,0,0,0.5),
+			`)
 		});
 	});
 });
