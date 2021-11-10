@@ -11,8 +11,8 @@ export default function Menu(props) {
 
 	const [showModal, setShowModal] = useState(false);
 
-	const addMenuItem = () => {
-
+	const addNewMenu = (newMenu) => {
+		dispatch(addMenu(newMenu));
 	}
 
 	return (
@@ -25,7 +25,7 @@ export default function Menu(props) {
 
 			<button onClick={() => setShowModal(true)}>Add menu</button>
 			{
-				showModal && <AddMenuModal />
+				showModal && <AddMenuModal addNewMenu={addNewMenu} />
 			}
 		</div>
 	)
