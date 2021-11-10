@@ -4,19 +4,6 @@ import { render, fireEvent, screen } from './test-util'
 import Menu from '../Menu';
 
 describe('Menu', () => {
-	const MENU_LIST = [
-		{
-			name: 'menu 1',
-			price: '11.99'
-		},
-		{
-			name: 'menu 2',
-			price: '12.99'
-		},	{
-			name: 'menu 3',
-			price: '13.99'
-		},
-	];
 
 	it('it should render list into a ul', async () => {
 

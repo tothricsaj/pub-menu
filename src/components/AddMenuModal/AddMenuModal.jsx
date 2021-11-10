@@ -1,4 +1,5 @@
-import React, { useRef } from "react"
+import React, { useRef } from "react";
+import style from "./AddMenuModal.module.css";
 
 export default function AddMenuModal(props) {
 	const nameRef = useRef(null);
@@ -16,7 +17,7 @@ export default function AddMenuModal(props) {
 	};
 
 	return (
-		<div data-testid="add-menu-modal">
+		<div data-testid="add-menu-modal" className={style.wrapper}>
 			<div>
 				<input type="text" placeholder="Name" ref={nameRef} />
 				<input type="text" placeholder="price" ref={priceRef} />

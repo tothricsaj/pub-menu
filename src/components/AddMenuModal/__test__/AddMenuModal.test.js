@@ -19,4 +19,17 @@ describe('AddMenuModal', () => {
 
 		expect(addBtn).toBeInTheDocument();
 	});
+
+	describe('AddMenuModal Style', () => {
+		it('should be full screen shaded modal', () => {
+			render(<AddMenuModal />);		
+			const wrapperDiv = screen.getByTestId('add-menu-modal');
+
+			expect(wrapperDiv).toHaveStyle({
+				backgroundColor: 'rgba(0,0,0,0.5)',
+				width: '100vw',
+				height: '100vh',
+			})
+		});
+	});
 });
