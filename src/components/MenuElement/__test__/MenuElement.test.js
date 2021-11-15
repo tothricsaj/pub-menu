@@ -14,6 +14,7 @@ describe('MenuElement', () => {
 
 		expect(liElement).toBeInTheDocument();
 	})
+
 	it('it should render the menu info (name, price)', () => {
 		render(<MenuElement menuInfo={ MENU_INFO } />);
 		const name = screen.getByText(/menu 1/i);
@@ -21,5 +22,12 @@ describe('MenuElement', () => {
 
 		expect(name).toBeInTheDocument();
 		expect(price).toBeInTheDocument();
+	});
+
+	it('should render edit button', async () => {
+		render(<MenuElement menuInfo={ MENU_INFO } />);	
+		const editBtn = screen.getByText(/Edit/i);
+
+		expect(editBtn).toBeInTheDocument();
 	});
 });
