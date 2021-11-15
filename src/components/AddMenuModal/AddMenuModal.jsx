@@ -14,11 +14,16 @@ export default function AddMenuModal(props) {
 		nameRef.current.value = null;
 		priceRef.current.value = null;
 
+		closeModal();
+
 	};
+
+	const closeModal = () => props.removeModal();
 
 	return (
 		<div data-testid="add-menu-modal" className={style.wrapper}>
-			<div>
+			<div className={style.menuInputs}>
+				<span onClick={closeModal}>X</span>
 				<input type="text" placeholder="Name" ref={nameRef} />
 				<input type="text" placeholder="price" ref={priceRef} />
 

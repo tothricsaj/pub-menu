@@ -5,7 +5,7 @@ import { addMenu, selectMenuList }  from './MenuSlice'
 import MenuElement from '../MenuElement/MenuElement';
 import AddMenuModal from '../AddMenuModal/AddMenuModal'
 
-export default function Menu(props) {
+export default function Menu() {
 	const menuList = useSelector(selectMenuList);
 	const dispatch = useDispatch();
 
@@ -25,7 +25,10 @@ export default function Menu(props) {
 
 			<button onClick={() => setShowModal(true)}>Add menu</button>
 			{
-				showModal && <AddMenuModal addNewMenu={addNewMenu} />
+				showModal && <AddMenuModal
+					addNewMenu={addNewMenu}
+					removeModal={() => setShowModal(false)}
+				/>
 			}
 		</div>
 	)
