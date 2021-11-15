@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import MenuElement from '../MenuElement';
 
@@ -29,5 +29,16 @@ describe('MenuElement', () => {
 		const editBtn = screen.getByText(/Edit/i);
 
 		expect(editBtn).toBeInTheDocument();
+	});
+
+	it('should render edit modal after fired click event', async () => {
+		render(<MenuElement menuInfo={ MENU_INFO } />);	
+		const editBtn = screen.getByText(/Edit/i);
+
+		fireEvent.click(editBtn);
+
+		const editModal = await screen.getByTestId('edit-modal');
+
+		expect(editModal).toBeInTheDocument();
 	});
 });
