@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '../../Menu/__test__/test-util'
 import React from 'react';
 import MenuElement from '../MenuElement';
 

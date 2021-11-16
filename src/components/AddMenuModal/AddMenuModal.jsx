@@ -9,7 +9,11 @@ export default function AddMenuModal(props) {
 		let newName = nameRef.current.value;
 		let newPrice = priceRef.current.value;
 
-		props.addNewMenu({name: newName, price: newPrice});
+		props.addNewMenu({
+			id: Math.ceil(Math.random() * 100000),
+			name: newName,
+			price: newPrice
+		});
 
 		nameRef.current.value = null;
 		priceRef.current.value = null;

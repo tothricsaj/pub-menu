@@ -1,15 +1,37 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-export default function EditModal({name, price, removeModal}) {
+import { useDispatch } from 'react-redux';
+import { editMenu }  from '../Menu/MenuSlice'
+
+export default function EditModal({menuId, name, price, removeModal}) {
+	const nameRef = useRef(null);
+	const priceRef = useRef(null);
+
+	const dispatch = useDispatch();
+
+	const edit = () => {
+		const data = {
+			id: menuId,
+			data: {
+				id: menuId,
+				name: nameRef.current.value,
+				price: priceRef.current.value
+			}
+		}
+		
+		dispatch(editMenu(data));
+
+		closeModal();
+	}
 
 	const closeModal = () => removeModal()
 
 	return (
 		<div data-testid="edit-modal">
 			<span onClick={closeModal} style={{cursor: "pointer"}}>X</span>
-			<input type="text" defaultValue={name} />
-			<input type="text" defaultValue={price} />
-			<button>Edit</button>
+			<input type="text" defaultValue={name} ref={nameRef} />
+			<input type="text" defaultValue={price} ref={priceRef} />
+			<button onClick={edit}>Edit</button>
 		</div>
 	)
 }

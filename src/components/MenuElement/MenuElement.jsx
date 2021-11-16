@@ -11,6 +11,7 @@ export default function MenuElement(props) {
 			
 			{showEditModal
 				&& <EditModal
+						menuId={props.menuInfo.id}
 						name={props.menuInfo.name}
 						price={props.menuInfo.price}
 						removeModal={() => setShowEditModal(false)}

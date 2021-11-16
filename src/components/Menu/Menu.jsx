@@ -19,7 +19,7 @@ export default function Menu() {
 		<div>
 			<ul>
 				{
-					menuList.map((el, i) => <MenuElement menuInfo={el} key={i} />)
+					menuList.map((el, i) => <MenuElement menuInfo={el} key={el.id} />)
 				}
 			</ul>
 
