@@ -8,7 +8,13 @@ export default function MenuElement(props) {
 		<li>
 			{ props.menuInfo.name } { props.menuInfo.price }
 			<button onClick={() => setShowEditModal(true)}>Edit</button>
-			{showEditModal && <EditModal name={props.menuInfo.name} price={props.menuInfo.price} />}
+			
+			{showEditModal
+				&& <EditModal
+						name={props.menuInfo.name}
+						price={props.menuInfo.price}
+						removeModal={() => setShowEditModal(false)}
+			/>}
 		</li>
 	)
 }
