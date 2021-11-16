@@ -5,10 +5,10 @@ export default function MenuElement(props) {
 	const [showEditModal, setShowEditModal] = useState(false);
 
 	return (
-		<li onClick={() => console.log(props.menuInfo.name)}>
+		<li>
 			{ props.menuInfo.name } { props.menuInfo.price }
 			<button onClick={() => setShowEditModal(true)}>Edit</button>
-			{showEditModal && <EditModal />}
+			{showEditModal && <EditModal name={props.menuInfo.name} price={props.menuInfo.price} />}
 		</li>
 	)
 }
