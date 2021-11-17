@@ -9,7 +9,9 @@ export default function EditModal({menuId, name, price, removeModal}) {
 
 	const dispatch = useDispatch();
 
-	const edit = () => {
+	const edit = (e) => {
+		e.stopPropagation();
+
 		const data = {
 			id: menuId,
 			data: {

@@ -1,13 +1,28 @@
 import React, { useState } from 'react'
+
 import EditModal from './EditModal/EditModal'
+import Modal from "../Modal/Modal";
+import MenuDetailPage from "./MenuDetailPage/MenuDetailPage";
 
 export default function MenuElement(props) {
 	const [showEditModal, setShowEditModal] = useState(false);
+	const [showMDP, setShowMDP] = useState(false); // MDP is Menu Detail Page
+
+	const showEditClick = e => {
+		e.stopPropagation();
+		setShowEditModal(true)
+	}
+
+	// TODO(tothricsaj): event capture in children as well
+	const showMDPClick = e => {
+		e.preventDefault();
+		setShowMDP(true)
+	}
 
 	return (
-		<li>
+		<li onClick={showMDPClick}>
 			{ props.menuInfo.name } { props.menuInfo.price }
-			<button onClick={() => setShowEditModal(true)}>Edit</button>
+			<button onClick={showEditClick}>Edit</button>
 			
 			{showEditModal
 				&& <EditModal
@@ -16,6 +31,12 @@ export default function MenuElement(props) {
 						price={props.menuInfo.price}
 						removeModal={() => setShowEditModal(false)}
 			/>}
+
+			{showMDP
+				&& <Modal closeModal={() => setShowMDP(false)}>
+					<MenuDetailPage />
+				</Modal>
+			}
 		</li>
 	)
 }
