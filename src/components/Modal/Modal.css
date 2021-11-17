@@ -12,8 +12,8 @@
 
 span {
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	top: 25px;
+	right: 25px;
 	color: white;
 	cursor: pointer;
 }
