@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 
 import { useDispatch } from 'react-redux';
-import { editMenu }  from '../Menu/MenuSlice'
+import { editMenu }  from '../../Menu/MenuSlice'
 
 export default function EditModal({menuId, name, price, removeModal}) {
 	const nameRef = useRef(null);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import EditModal from './EditModal'
+import EditModal from './EditModal/EditModal'
 
 export default function MenuElement(props) {
 	const [showEditModal, setShowEditModal] = useState(false);

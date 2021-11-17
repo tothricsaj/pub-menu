@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '../../Menu/__test__/test-util'
 import React from 'react';
 
-import EditModal from '../EditModal'
+import EditModal from '../EditModal/EditModal'
 
 describe('<EditMdal />', () => {
 	it('should render menu info inside inputs', () => {
