@@ -27,9 +27,9 @@ export const menuSlice = createSlice({
 			state.menuList.push(action.payload);
 		},
 		editMenu: (state, action) => {
-			const menuIndex = state.menuList.findIndex(el => el.id > action.payload.id);
+			const menuIndex = state.menuList.findIndex(el => el.id === action.payload.id);
 
-			state.menuList[menuIndex - 1] = action.payload.data;
+			state.menuList[menuIndex] = action.payload.data;
 		}
 	}
 });
