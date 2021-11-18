@@ -23,12 +23,13 @@ export default function AddMenuModal(props) {
 	};
 
 	const closeModal = () => props.removeModal();
+	const handlePropagation = e => e.stopPropagation();
 
 	return (
 		<div data-testid="add-menu-modal">
 			<div className={style.menuInputs}>
-				<input type="text" placeholder="Name" ref={nameRef} />
-				<input type="text" placeholder="price" ref={priceRef} />
+				<input type="text" placeholder="Name" onClick={handlePropagation} ref={nameRef} />
+				<input type="text" placeholder="price" onClick={handlePropagation} ref={priceRef} />
 
 				<button role="addBtn" onClick={addMenu}>Add</button>
 			</div>
