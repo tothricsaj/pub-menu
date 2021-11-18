@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addMenu, selectMenuList }  from './MenuSlice'
 
 import MenuElement from '../MenuElement/MenuElement';
-import AddMenuModal from '../AddMenuModal/AddMenuModal';
 import Modal from "../Modal/Modal";
 import MenuInput from "../MenuInput/MenuInput";
 
@@ -31,12 +30,7 @@ export default function Menu() {
 				<Modal closeModal={() => setShowModal(false)}>
 					<MenuInput
 						changeData={addNewMenu}
-						// removeModal={() => setShowModal(false)}
 					/>
-					{/* <AddMenuModal
-						addNewMenu={addNewMenu}
-						removeModal={() => setShowModal(false)}
-					/> */}
 				</Modal>
 			}
 		</div>

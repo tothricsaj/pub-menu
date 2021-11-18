@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { editMenu }  from '../Menu/MenuSlice';
 
-import EditModal from './EditModal/EditModal'
 import Modal from "../Modal/Modal";
 import MenuDetailPage from "./MenuDetailPage/MenuDetailPage";
 import MenuInput from "../MenuInput/MenuInput"
@@ -43,12 +42,6 @@ export default function MenuElement(props) {
 							changeData={edit}
 						/>
 					</Modal>
-					// <EditModal
-					// 	menuId={props.menuInfo.id}
-					// 	name={props.menuInfo.name}
-					// 	price={props.menuInfo.price}
-					// 	removeModal={() => setShowEditModal(false)}
-					// />
 			}
 
 			{showMDP

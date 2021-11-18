@@ -30,15 +30,4 @@ describe('MenuElement', () => {
 
 		expect(editBtn).toBeInTheDocument();
 	});
-
-	it('should render edit modal after fired click event', async () => {
-		render(<MenuElement menuInfo={ MENU_INFO } />);	
-		const editBtn = screen.getByText(/Edit/i);
-
-		fireEvent.click(editBtn);
-
-		const editModal = await screen.getByTestId('edit-modal');
-
-		expect(editModal).toBeInTheDocument();
-	});
 });
