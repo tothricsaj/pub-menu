@@ -13,6 +13,12 @@ export default function MenuElement(props) {
 		setShowEditModal(true)
 	}
 
+	const menuInfos = {
+		menuId: props.menuInfo.id,
+		name: props.menuInfo.name,
+		price: props.menuInfo.price
+	};
+
 	return (
 		<li onClick={() => setShowMDP(true)}>
 			{ props.menuInfo.name } { props.menuInfo.price }
@@ -28,7 +34,9 @@ export default function MenuElement(props) {
 
 			{showMDP
 				&& <Modal closeModal={() => setShowMDP(false)}>
-					<MenuDetailPage />
+					<MenuDetailPage
+						menuInfos={menuInfos}
+					/>
 				</Modal>
 			}
 		</li>
