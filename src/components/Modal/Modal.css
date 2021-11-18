@@ -10,7 +10,7 @@
 	background-color: rgba(0,0,0,0.5);
 }
 
-span {
+.close{
 	position: absolute;
 	top: 25px;
 	right: 25px;

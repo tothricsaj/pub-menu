@@ -12,7 +12,7 @@ export default function Modal(props) {
 
 	return (
 		<div onClick={handleClick} className={style.wrapper}>
-			<span onClick={handleClick}>X</span>
+			<span onClick={handleClick} className={style.close}>X</span>
 			{props.children}
 		</div>
 	)
