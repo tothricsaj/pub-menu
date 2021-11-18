@@ -26,13 +26,15 @@ export default function EditModal({menuId, name, price, removeModal}) {
 		closeModal();
 	}
 
+	const handlePropagation = e => e.stopPropagation();
+
 	const closeModal = () => removeModal()
 
 	return (
 		<div data-testid="edit-modal">
 			<span onClick={closeModal} style={{cursor: "pointer"}}>X</span>
-			<input type="text" defaultValue={name} ref={nameRef} />
-			<input type="text" defaultValue={price} ref={priceRef} />
+			<input type="text" defaultValue={name} onClick={handlePropagation} ref={nameRef} />
+			<input type="text" defaultValue={price} onClick={handlePropagation} ref={priceRef} />
 			<button onClick={edit}>Edit</button>
 		</div>
 	)

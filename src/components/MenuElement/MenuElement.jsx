@@ -13,14 +13,8 @@ export default function MenuElement(props) {
 		setShowEditModal(true)
 	}
 
-	// TODO(tothricsaj): event capture in children as well
-	const showMDPClick = e => {
-		e.preventDefault();
-		setShowMDP(true)
-	}
-
 	return (
-		<li onClick={showMDPClick}>
+		<li onClick={() => setShowMDP(true)}>
 			{ props.menuInfo.name } { props.menuInfo.price }
 			<button onClick={showEditClick}>Edit</button>
 			
