@@ -13,13 +13,10 @@ export default function EditModal({menuId, name, price, removeModal}) {
 		e.stopPropagation();
 
 		const data = {
-			id: menuId,
-			data: {
 				id: menuId,
 				name: nameRef.current.value,
 				price: priceRef.current.value
 			}
-		}
 		
 		dispatch(editMenu(data));
 
