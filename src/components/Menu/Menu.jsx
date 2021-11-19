@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addMenu, selectMenuList }  from './MenuSlice'
 
@@ -19,7 +19,7 @@ export default function Menu() {
 		<div>
 			<ul>
 				{
-					menuList.map((el, i) => <MenuElement menuInfo={el} key={el.id} />)
+					menuList.map((el) => <MenuElement menuInfo={el} key={el.id} />)
 				}
 			</ul>
 

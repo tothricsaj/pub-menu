@@ -1,13 +1,22 @@
 import React from 'react'
 
 export default function MenuDetailPage(props) {
-	const {menuId, name, price} = props.menuInfos;
+	const {id, name, price, ingredients, quantity, description} = props.menuInfos;
 	console.log(props.menuInfos);
 	return (
 		<div>
 			<h2>
-				{name} - {price}
+				{name}
 			</h2>
+			<div>
+				{ingredients.map(el => <span key={id + "MDP"}>{el}, </span>)}
+			</div>
+			<p>{quantity}</p>
+			<p>{price}$</p>
+
+			<div>
+				{description}
+			</div>
 		</div>
 	)
 }

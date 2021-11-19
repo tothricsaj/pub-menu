@@ -22,12 +22,6 @@ export default function MenuElement(props) {
 		dispatch(editMenu(editedMenu));
 	}
 
-	const menuInfos = {
-		menuId: props.menuInfo.id,
-		name: props.menuInfo.name,
-		price: props.menuInfo.price
-	};
-
 	return (
 		<li onClick={() => setShowMDP(true)}>
 			{ props.menuInfo.name } { props.menuInfo.price }
@@ -35,9 +29,10 @@ export default function MenuElement(props) {
 			
 			{showEditModal
 				&& <MenuInput
-						menuId={props.menuInfo.id}
-						name={props.menuInfo.name}
-						price={props.menuInfo.price}
+						// menuId={props.menuInfo.id}
+						// name={props.menuInfo.name}
+						// price={props.menuInfo.price}
+						menuInfo={props.menuInfo}
 						changeData={edit}
 						closeModal={() => setShowEditModal(false)}
 					/>
@@ -46,7 +41,7 @@ export default function MenuElement(props) {
 			{showMDP
 				&& <Modal closeModal={() => setShowMDP(false)}>
 						<MenuDetailPage
-							menuInfos={menuInfos}
+							menuInfos={props.menuInfo}
 						/>
 					</Modal>
 			}
