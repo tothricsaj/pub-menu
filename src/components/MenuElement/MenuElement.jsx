@@ -34,14 +34,13 @@ export default function MenuElement(props) {
 			<button onClick={showEditClick}>Edit</button>
 			
 			{showEditModal
-				&& <Modal closeModal={() => setShowEditModal(false)}>
-						<MenuInput
-							menuId={props.menuInfo.id}
-							name={props.menuInfo.name}
-							price={props.menuInfo.price}
-							changeData={edit}
-						/>
-					</Modal>
+				&& <MenuInput
+						menuId={props.menuInfo.id}
+						name={props.menuInfo.name}
+						price={props.menuInfo.price}
+						changeData={edit}
+						closeModal={() => setShowEditModal(false)}
+					/>
 			}
 
 			{showMDP

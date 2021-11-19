@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import style from "./MenuInput.css";
 
+import Modal from "../Modal/Modal";
+
 export default function MenuInput(props) {
 	const nameRef = useRef(null);
 	const priceRef = useRef(null);
@@ -41,13 +43,15 @@ export default function MenuInput(props) {
 	const handlePropagation = e => e.stopPropagation();
 
 	return (
-		<div data-testid="add-menu-modal">
-			<div className={style.menuInputs}>
-				<input type="text" placeholder="Name" onClick={handlePropagation} ref={nameRef} defaultValue={props.name && props.name}/>
-				<input type="text" placeholder="price" onClick={handlePropagation} ref={priceRef} defaultValue={props.price && props.price} />
+		<Modal closeModal={props.closeModal}>
+			<div data-testid="add-menu-modal">
+				<div className={style.menuInputs}>
+					<input type="text" placeholder="Name" onClick={handlePropagation} ref={nameRef} defaultValue={props.name && props.name}/>
+					<input type="text" placeholder="price" onClick={handlePropagation} ref={priceRef} defaultValue={props.price && props.price} />
 
-				<button role="addBtn" onClick={changeData}>Add</button>
+					<button role="addBtn" onClick={changeData}>Add</button>
+				</div>
 			</div>
-		</div>
+		</Modal>
 	)
 }
