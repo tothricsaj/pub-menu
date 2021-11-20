@@ -18,11 +18,11 @@ export default function MenuInput(props) {
 
 	useEffect(() => {
 
-		name 					= props.menuInfo.name 				|| nameRef.current.value;
-		price 				= props.menuInfo.price 				|| priceRef.current.value;
-		ingredients 	= props.menuInfo.ingredients 	|| ingrRef.current.value;
-		quantity 			= props.menuInfo.quantity 		|| quantityRef.current.value;	
-		description		= props.menuInfo.description 	|| descriptionRef.current.value;
+		name 					= props.menuInfo && props.menuInfo.name
+		price 				= props.menuInfo && props.menuInfo.price
+		ingredients 	= props.menuInfo && props.menuInfo.ingredients
+		quantity 			= props.menuInfo && props.menuInfo.quantity
+		description		= props.menuInfo && props.menuInfo.description
 
 		console.log('menuInfo -> ', props.menuInfo);
 
@@ -58,11 +58,11 @@ export default function MenuInput(props) {
 
 		if(type === 'textarea')
 			return (ref, placeHolder, defValue=null) => (
-				<textarea placeholder={placeHolder} onClick={handlePropagation} ref={ref} defaultValue={!!defValue && defValue}></textarea>
+				<textarea placeholder={placeHolder} onClick={handlePropagation} ref={ref} defaultValue={!!defValue ? defValue:''}></textarea>
 			)
 
 		return (ref, placeHolder, defValue=null) => {
-			return <input type={inputType} placeholder={placeHolder} onClick={handlePropagation} ref={ref} defaultValue={!!defValue && defValue}/>
+			return <input type={inputType} placeholder={placeHolder} onClick={handlePropagation} ref={ref} defaultValue={!!defValue ? defValue:''}/>
 		}
 	}
 
@@ -80,12 +80,12 @@ export default function MenuInput(props) {
 					<input type="text" placeholder="Ingredients" onClick={handlePropagation} ref={ingrRef} defaultValue={props.ingredients && props.ingredients} />
 					<input type="text" placeholder="Quantity" onClick={handlePropagation} ref={quantityRef} defaultValue={props.quantity && props.quantity} /> */}
 
-					{textInputMaker(nameRef, 'Name', props.menuInfo.name)}
-					{textInputMaker(priceRef, 'Price', props.menuInfo.price)}
-					{textInputMaker(ingrRef, 'Ingredients', props.menuInfo.ingredients)}
-					{textInputMaker(quantityRef, 'Quantity', props.menuInfo.quantity)}
+					{!!props.menuInfo ? textInputMaker(nameRef, 'Name', props.menuInfo.name) : textInputMaker(nameRef, 'Name')}
+					{!!props.menuInfo ? textInputMaker(priceRef, 'Price', props.menuInfo.price) : textInputMaker(priceRef, 'Price')}
+					{!!props.menuInfo ? textInputMaker(ingrRef, 'Ingredients', props.menuInfo.ingredients) : textInputMaker(ingrRef, 'Ingredients')}
+					{!!props.menuInfo ? textInputMaker(quantityRef, 'Quantity', props.menuInfo.quantity) : textInputMaker(quantityRef, 'Quantity')}
 
-					{textFiledMaker(descriptionRef, 'Description', props.menuInfo.description)}
+					{!!props.menuInfo ? textFiledMaker(descriptionRef, 'Description', props.menuInfo.description) : textFiledMaker(descriptionRef, 'Description')}
 
 					<button role="addBtn" onClick={changeData}>Add</button>
 				</div>
