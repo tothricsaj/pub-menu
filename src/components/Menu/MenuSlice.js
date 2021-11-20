@@ -39,7 +39,8 @@ export const menuSlice = createSlice({
 			const menuIndex = state.menuList.findIndex(el => el.id === action.payload.id);
 
 			state.menuList[menuIndex] = action.payload;
-			console.log('menuList in state -> ', state.menuList);
+			console.log(menuIndex);
+			console.log(action.payload);
 		}
 	}
 });

@@ -30,28 +30,31 @@ export default function MenuInput(props) {
 	});
 
 	const changeData = () => {
-		// let name = nameRef.current.value;
-		// let price = priceRef.current.value;
 
 		name = nameRef.current.value;
 		price = priceRef.current.value;
-		ingredients = ingrRef.current.value;
+		ingredients = splitIngredientsStr(ingrRef.current.value);
 		quantity = quantityRef.current.value;	
 		description = descriptionRef.current.value;
 
 		const data = {
-			id: !!props.menuId ? props.menuId : Math.ceil(Math.random() * 100000),
+			id: !!props.menuInfo ? props.menuInfo.id : Math.ceil(Math.random() * 100000),
 			name: name,
-			price: price
+			price: price,
+			ingredients,
+			quantity,
+			description
 		}
 
-		console.log(data);
+		console.log('props.id', props.id);
 
 		props.changeData(data);
 
 		nameRef.current.value = null;
 		priceRef.current.value = null;
 	};
+
+	const splitIngredientsStr = (ingredients) => ingredients.split(/ | ,/);
 
 	const inputMaker = (type) => {
 		const inputType = type;
@@ -75,10 +78,6 @@ export default function MenuInput(props) {
 		<Modal closeModal={props.closeModal}>
 			<div data-testid="add-menu-modal">
 				<div className={style.menuInputs}>
-					{/* <input type="text" placeholder="Name" onClick={handlePropagation} ref={nameRef} defaultValue={props.name && props.name}/>
-					<input type="text" placeholder="Price" onClick={handlePropagation} ref={priceRef} defaultValue={props.price && props.price} />
-					<input type="text" placeholder="Ingredients" onClick={handlePropagation} ref={ingrRef} defaultValue={props.ingredients && props.ingredients} />
-					<input type="text" placeholder="Quantity" onClick={handlePropagation} ref={quantityRef} defaultValue={props.quantity && props.quantity} /> */}
 
 					{!!props.menuInfo ? textInputMaker(nameRef, 'Name', props.menuInfo.name) : textInputMaker(nameRef, 'Name')}
 					{!!props.menuInfo ? textInputMaker(priceRef, 'Price', props.menuInfo.price) : textInputMaker(priceRef, 'Price')}

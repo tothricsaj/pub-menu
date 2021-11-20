@@ -29,9 +29,6 @@ export default function MenuElement(props) {
 			
 			{showEditModal
 				&& <MenuInput
-						// menuId={props.menuInfo.id}
-						// name={props.menuInfo.name}
-						// price={props.menuInfo.price}
 						menuInfo={props.menuInfo}
 						changeData={edit}
 						closeModal={() => setShowEditModal(false)}
