@@ -6,6 +6,11 @@ import store from './store/store'
 
 import App from './App';
 
+store.subscribe(() => {
+  // localStorage.menuList = {...store.getState().menu};
+  localStorage.setItem('menuList', JSON.stringify(store.getState().menu.menuList))
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

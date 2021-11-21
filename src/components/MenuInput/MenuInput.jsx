@@ -24,9 +24,9 @@ export default function MenuInput(props) {
 		quantity 			= props.menuInfo && props.menuInfo.quantity
 		description		= props.menuInfo && props.menuInfo.description
 
-		console.log('menuInfo -> ', props.menuInfo);
+		// console.log('menuInfo -> ', props.menuInfo);
 
-		console.log('name -> ', name)
+		// console.log('name -> ', name)
 	});
 
 	const changeData = () => {
@@ -45,8 +45,6 @@ export default function MenuInput(props) {
 			quantity,
 			description
 		}
-
-		console.log('props.id', props.id);
 
 		props.changeData(data);
 
