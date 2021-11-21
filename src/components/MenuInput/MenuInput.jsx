@@ -81,7 +81,7 @@ export default function MenuInput(props) {
 
 					{!!props.menuInfo ? textFiledMaker(descriptionRef, 'Description', props.menuInfo.description) : textFiledMaker(descriptionRef, 'Description')}
 
-					<button role="addBtn" onClick={changeData}>Add</button>
+					<button role="addBtn" onClick={changeData} className="pub-button">Add</button>
 				</div>
 			</div>
 		</Modal>

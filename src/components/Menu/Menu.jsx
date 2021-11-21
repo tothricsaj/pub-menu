@@ -5,6 +5,8 @@ import { addMenu, initMenu, selectMenuList }  from './MenuSlice'
 import MenuElement from '../MenuElement/MenuElement';
 import MenuInput from "../MenuInput/MenuInput";
 
+import style from './Menu.css';
+
 export default function Menu() {
 	const dispatch = useDispatch();
 	const [showModal, setShowModal] = useState(false);
@@ -22,14 +24,14 @@ export default function Menu() {
 	}, []);
 
 	return (
-		<div>
+		<div className={style.wrapper}>
 			<ul>
 				{
 					menuList.map((el) => <MenuElement menuInfo={el} key={el.id} />)
 				}
 			</ul>
 
-			<button onClick={() => setShowModal(true)}>Add menu</button>
+			<button onClick={() => setShowModal(true)} className="pub-button">Add menu</button>
 			{
 				showModal && 
 					<MenuInput

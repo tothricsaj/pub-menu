@@ -25,7 +25,7 @@ export default function MenuElement(props) {
 	return (
 		<li onClick={() => setShowMDP(true)}>
 			{ props.menuInfo.name } { props.menuInfo.price }
-			<button onClick={showEditClick}>Edit</button>
+			<button onClick={showEditClick} className="pub-button">Edit</button>
 			
 			{showEditModal
 				&& <MenuInput
