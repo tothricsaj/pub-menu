@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function MenuDetailPage(props) {
 	const {id, name, price, ingredients, quantity, description} = props.menuInfos;
-	console.log(props.menuInfos);
 	return (
 		<div>
 			<h2>

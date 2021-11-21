@@ -17,9 +17,7 @@ export default function Menu() {
 
 	useEffect(() => {
 		if(localStorage.getItem('menuList')) {
-			// menuList = (JSON.parse(localStorage.menuList)).menuList.map(el => el);
 			dispatch(initMenu(JSON.parse(localStorage.menuList)));
-			console.log('menuList from localStorage -> ', JSON.parse(localStorage.menuList).menuList);
 		}
 	}, []);
 
